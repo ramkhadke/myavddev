@@ -12,7 +12,7 @@
 ~h
 # Command Line History (newest to oldest):
 :wq
-|2,0,1683372715,,"wq"
+|2,0,1683458205,,"wq"
 
 # Search String History (newest to oldest):
 
@@ -25,20 +25,30 @@
 # Registers:
 
 # File marks:
-'0  7  19  /var/lib/jenkins/config.xml
-|4,48,7,19,1683372715,"/var/lib/jenkins/config.xml"
+'0  41  8  /var/lib/jenkins/config.xml
+|4,48,41,8,1683458205,"/var/lib/jenkins/config.xml"
 '1  7  19  /var/lib/jenkins/config.xml
-|4,49,7,19,1683371745,"/var/lib/jenkins/config.xml"
-'2  1  0  /var/lib/jenkins/secrets/initialAdminPassword
-|4,50,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
-'3  1  0  /var/lib/jenkins/secrets/initialAdminPassword
-|4,51,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
-'4  1  0  /var/lib/jenkins/secrets/initialAdminPassword
-|4,52,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+|4,49,7,19,1683372715,"/var/lib/jenkins/config.xml"
+'2  7  19  /var/lib/jenkins/config.xml
+|4,50,7,19,1683372715,"/var/lib/jenkins/config.xml"
+'3  7  19  /var/lib/jenkins/config.xml
+|4,51,7,19,1683371745,"/var/lib/jenkins/config.xml"
+'4  7  19  /var/lib/jenkins/config.xml
+|4,52,7,19,1683371745,"/var/lib/jenkins/config.xml"
 '5  1  0  /var/lib/jenkins/secrets/initialAdminPassword
-|4,53,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+|4,53,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
+'6  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,54,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+'7  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,55,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+'8  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,56,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
 
 # Jumplist (newest first):
+-'  41  8  /var/lib/jenkins/config.xml
+|4,39,41,8,1683458205,"/var/lib/jenkins/config.xml"
+-'  7  19  /var/lib/jenkins/config.xml
+|4,39,7,19,1683457995,"/var/lib/jenkins/config.xml"
 -'  7  19  /var/lib/jenkins/config.xml
 |4,39,7,19,1683372715,"/var/lib/jenkins/config.xml"
 -'  7  19  /var/lib/jenkins/config.xml
@@ -47,6 +57,16 @@
 |4,39,1,0,1683371621,"/var/lib/jenkins/config.xml"
 -'  1  0  /var/lib/jenkins/config.xml
 |4,39,1,0,1683371621,"/var/lib/jenkins/config.xml"
+-'  1  0  /var/lib/jenkins/config.xml
+|4,39,1,0,1683371621,"/var/lib/jenkins/config.xml"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
 -'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
 |4,39,1,0,1683279892,"/var/lib/jenkins/secrets/initialAdminPassword"
 -'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
@@ -63,6 +83,22 @@
 |4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
 -'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
 |4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683272679,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
+-'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
+|4,39,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
 -'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
 |4,39,1,0,1683270051,"/var/lib/jenkins/secrets/initialAdminPassword"
 -'  1  0  /var/lib/jenkins/secrets/initialAdminPassword
@@ -75,9 +111,9 @@
 # History of marks within files (newest to oldest):
 
 > /var/lib/jenkins/config.xml
-	*	1683372714	0
-	"	7	19
-	^	7	20
+	*	1683458204	0
+	"	41	8
+	^	41	9
 	.	7	19
 	+	7	19
 

@@ -75,3 +75,34 @@ config.xml
 sudo vi /var/lib/jenkins/config.xml
 systemctl restart jenkins
 sudo systemctl status jenkins
+cd /var/lib/jenkins
+ls
+sudo vi /var/lib/jenkins/config.xml
+systemctl restart jenkins
+cd
+exit
+cd /var/lib/jenkins/workspace/DevOps king/webapp/target/
+cd /var/lib/jenkins/workspace/DevOps king/
+cd /var/lib/jenkins/workspace/
+ls
+cd DevOps king/
+cd /DevOps king
+cd DevOps king
+cd DevOpsking/
+cd /DevOpsking/
+cd /DevOps king
+cd DevOps king
+cd 'DevOps king'
+ls
+cd webapp
+ls -ltr
+cd target/
+ls
+cd
+git init
+git status
+git add .
+git status
+git commit -m "boss"
+git clone https://github.com/Ram-Bhau/apps.git
+git log
