@@ -106,3 +106,25 @@ git status
 git commit -m "boss"
 git clone https://github.com/Ram-Bhau/apps.git
 git log
+git --version
+git status
+git add .
+git commit -m "b"
+git status
+git push https://github.com/ramkhadke/maven2.git
+git add .
+git status
+git remote add origin https://github.com/ramkhadke/maven2.git
+git push origin master
+git pull origin https://github.com/ramkhadke/maven2.git
+exit
+git --version
+git init
+git status
+git add .
+git commit -m "b"
+git status
+git clone https://github.com/ramkhadke/apps.git
+git fetch origin master https://github.com/ramkhadke/apps.git
+git fetch origin master 
+git log
