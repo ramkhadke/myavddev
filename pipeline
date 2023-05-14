@@ -1,0 +1,149 @@
+#!/usr/bin/env groovy
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import hudson.model.Actionable;
+
+pipeline {
+    agent any
+
+    environment {
+        GOPATH = "$WORKSPACE/go"
+        PATH = "$PATH:$GOPATH/bin"
+        PROJECT_HOME = "$GOPATH/https://github.com/Ram-Bhau/Devops.git"
+        SCRIPTS_DIR = "$PROJECT_HOME/scripts"
+        DEPLOY_SCRIPT = "$SCRIPTS_DIR/deploy.sh"
+
+        BRANCH_DEV = "dev"
+        BRANCH_MASTER = "master"
+        
+        /////// 
+        //    const to build image and deploy to k8s
+        //////
+        DEPLOYMENT_NAME = 'my_deployment'
+        CONTAINER_NAME = 'my_container_name'
+        // namespaces
+        NS_DEV = 'dev'
+        NS_STAGING = 'staging'
+        NS_PRODUCTION = 'default'
+        // environments
+        ENV_DEV = 'dev'
+        ENV_STAGING = 'staging'
+        ENV_PRODUCTION = 'production'
+        ///////
+    }
+
+    stages {
+        stage('Init'){
+            when {
+                // only run on branch dev & master
+                anyOf { 
+                    branch "$BRANCH_DEV"; branch "$BRANCH_MASTER"
+                }
+            }
+            steps {
+                dir("$PROJECT_HOME") {
+                    checkout scm
+                }
+                sh "chmod +x -R $SCRIPTS_DIR"
+            }    
+        }
+
+        stage('Test') {
+            when {
+                // only run on branch dev & master
+                anyOf { 
+                    branch "$BRANCH_DEV"; branch "$BRANCH_MASTER"
+                }
+            }
+            steps { 
+                dir ("$PROJECT_HOME"){
+                    sh 'scripts/test.sh'
+                }
+            }
+        }
+
+        stage('Deploy Dev') {
+            environment {
+                ENVIRONMENT = "$ENV_DEV"
+                NAMESPACE = "$NS_DEV"
+            }
+            when {
+                branch "$BRANCH_DEV"
+            }
+            steps {
+                sh "$BUILD_SCRIPT"
+                sh "$DEPLOY_SCRIPT"
+            }
+        }
+
+        stage('Deploy Staging') {
+            environment {
+                ENVIRONMENT = "$ENV_STAGING"
+                NAMESPACE = "$NS_STAGING"
+            }
+            when {
+                branch "$BRANCH_DEV"
+            }
+            steps {
+                sh "$BUILD_SCRIPT"
+                sh "$DEPLOY_SCRIPT"
+            }
+        }
+
+        stage('Get Approval') {
+            when {
+                branch "$BRANCH_MASTER"
+            }
+            steps {
+                // abort after 5 mins
+                timeout(5) {
+                    slackSend (color: '#9033FF', message: "@channel APPROVAL NEEDED: Job <$RUN_DISPLAY_URL|$JOB_NAME #$BUILD_NUMBER> need to be approved :pray:")
+                    script {
+                        def userInput = input message: 'Do you want to deploy to PRODUCTION environment?', submitterParameter: 'approver', 
+                        parameters: [booleanParam(name: 'Yes', defaultValue: true)]
+                        env.DEPLOY_TO_PRODUCTION = "${userInput.Yes}"
+                        env.APPROVER = "${userInput.approver}"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Production') {
+            environment {
+                ENVIRONMENT = "$ENV_PRODUCTION"
+                NAMESPACE = "$NS_PRODUCTION"
+            }
+            when {
+                environment name: "DEPLOY_TO_PRODUCTION", value: "true"
+            }
+            steps {
+                slackSend (color: '#33CAFF', message: "APPROVED: Job *$JOB_NAME* <$RUN_DISPLAY_URL|Build $BUILD_NUMBER> has been approved by `$APPROVER` :bow:")
+                sh "$BUILD_SCRIPT"
+                sh "$DEPLOY_SCRIPT"
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                def buildStatus = currentBuild.result == null ? "SUCCESS" : currentBuild.result.toUpperCase()
+                def commit = sh(returnStdout: true, script: 'git rev-parse HEAD')
+                def author = sh(returnStdout: true, script: "git --no-pager show -s --format='%an' ${commit}").trim()
+                def commitMsg = sh(returnStdout: true, script: 'git log -1 --pretty=%B').trim()
+                def title = "Job ${env.JOB_NAME} - Build: ${env.BUILD_NUMBER}"
+                def title_link = "${env.RUN_DISPLAY_URL}"
+                def subject = "*${buildStatus}:* `${env.JOB_NAME} #${env.BUILD_NUMBER}` (<${env.RUN_DISPLAY_URL}|Open>) (<${env.RUN_CHANGES_DISPLAY_URL}|  Changes>)"
+                def branchName = "${env.BRANCH_NAME}"
+
+                if (buildStatus == 'SUCCESS') {
+                        color = 'good'
+                } else if (buildStatus == 'ABORTED') {
+                        color = 'warning'
+                } else {
+                        color = 'danger'
+                }
+            }
+        }
+    }
+}
