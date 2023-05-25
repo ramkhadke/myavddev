@@ -128,3 +128,56 @@ git clone https://github.com/ramkhadke/apps.git
 git fetch origin master https://github.com/ramkhadke/apps.git
 git fetch origin master 
 git log
+git init
+rm -rf .git
+git init
+git clone https://github.com/ramkhadke/maven2.git
+git clone https://github.com/ramkhadke/maven2.git test
+git status
+git add .
+git status
+git commit -m "new pipeline script"
+git push
+git remote add test https://github.com/ramkhadke/maven2.git
+git remote add origin https://github.com/ramkhadke/maven2.git
+git remote add https://github.com/ramkhadke/maven2.git
+git remote add test https://github.com/ramkhadke/maven2.git
+git pull
+git push
+git push -u origin test
+git push -u origin test https://github.com/ramkhadke/maven2.git
+git push test https://github.com/ramkhadke/maven2.git
+git push https://github.com/ramkhadke/maven2.git
+git branch
+git branch --all
+git switch test
+git branch switch test
+git branch
+git branch -d switch
+git branch
+git push https://github.com/ramkhadke/maven2.git
+cat > pipeline
+git add .
+git staus
+git status
+git commit -m "first commit of pipeline"
+git push
+exit
+ssh ubuntu@172.31.17.95
+java -version
+mvn -version
+ssh-copy-id ubuntu@172.31.17.95
+cd .ssh/
+ls
+cat authorized_keys
+cd 
+cd  .ssh
+rm -rf *
+ls
+cd 
+ssh-keygen
+ssh-copy-id ubuntu@172.31.17.95
+ansible --version
+ansible -version
+ping master
+ansible  -version
