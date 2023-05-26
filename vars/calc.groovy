@@ -10,7 +10,7 @@ def subt (a,b)
 {
   echo "the subtraction of ${a} and ${b} is ${a-b}"
 }
-def div (a,b)
+def divi (a,b)
 {
   echo "the division of ${a} and ${b} is ${a/b}"
 }
